@@ -5,6 +5,8 @@
            [org.datavec.api.records.reader.impl.csv CSVRecordReader]
            [org.datavec.api.split FileSplit]))
 
+;; Outdated design ? See if can be merged
+
 (defn- ->csv-record-reader-with-defaults
   ^CSVRecordReader
   [{:keys [sep to-skip quote] :or {sep \; , to-skip 1 , quote \"}}]
@@ -35,6 +37,15 @@
    (initialize! rdr false io-coercible))
   ([^CSVRecordReader rdr use-nd4j? io-coercible]
    (.initialize ^CSVRecordReader rdr ^FileSplit (->file-split use-nd4j? io-coercible))))
+
+(defn initialize
+  ^CSVRecordReader
+  ([rdr io-coercible]
+   (initialize! rdr io-coercible)
+   rdr)
+  ([rdr use-nd4j? io-coercible]
+   (initialize! rdr use-nd4j? io-coercible)
+   rdr))
 
 
 
