@@ -1,5 +1,7 @@
 # clj-datavec
 
+[![Clojars Project](https://img.shields.io/clojars/v/io.github.jeremylcfr/clj-datavec.svg)](https://clojars.org/io.github.jeremylcfr/clj-datavec)
+
 WIP for DL4J
 
 ## Usage
